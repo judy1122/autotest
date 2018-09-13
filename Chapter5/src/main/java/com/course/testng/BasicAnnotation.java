@@ -23,7 +23,7 @@ public class BasicAnnotation{
      * 这是after
      */
 
-    @BeforeTest
+    @BeforeMethod
     public void beforeMethod(){
         System.out.println("这是beforeMethod");
     }
@@ -53,6 +53,30 @@ public class BasicAnnotation{
     @AfterClass
     public void afterClass(){
         System.out.println("这是afterClass");
+    }
+
+    /**
+     * beforeSuite和beforeSuite，即，类在运行之前和之后运行suite
+     * eg:
+     * 这是beforeSuite
+     * 这是beforeMethod
+     * 这是beforeClass
+     * 这是测试用例1
+     * 这是afterMethod
+     * 这是测试用例2
+     * 这是afterMethod
+     * 这是afterClass
+     * 这是beforeSuite
+     */
+
+    @BeforeSuite
+    public void beforeSuite(){
+        System.out.println("这是beforeSuite");
+    }
+
+    @AfterSuite
+    public void afterSuite(){
+        System.out.println("这是beforeSuite");
     }
 
 }
