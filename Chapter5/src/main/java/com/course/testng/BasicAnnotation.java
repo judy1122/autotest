@@ -59,10 +59,11 @@ public class BasicAnnotation{
      * beforeSuite和beforeSuite，即，类在运行之前和之后运行suite
      * eg:
      * 这是beforeSuite
-     * 这是beforeMethod
      * 这是beforeClass
+     * 这是beforeMethod
      * 这是测试用例1
      * 这是afterMethod
+     * 这是beforeMethod
      * 这是测试用例2
      * 这是afterMethod
      * 这是afterClass
