@@ -29,16 +29,14 @@ public class GetUserInfoListTest {
         System.out.println(getUserListCase.toString());
         System.out.println(TestConfig.getUserListUrl);
 
-
-
-
-
-        //下边为写完接口的代码
+        //调用httpclient
         JSONArray resultJson = getJsonResult(getUserListCase);
-        /**
-         * 可以先讲
-         */
         Thread.sleep(2000);
+        /**
+         * getUserListCase.getExpected()=getUserList,即xml中间中，获取用户列表
+         * 入参为getUserListCase，即userlistcase，判断下用户名、密码匹配啥的
+         * 以下匹配sex为0的
+         */
         List<User> userList = session.selectList(getUserListCase.getExpected(),getUserListCase);
         for(User u : userList){
             System.out.println("list获取的user:"+u.toString());

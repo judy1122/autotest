@@ -5,6 +5,10 @@ import com.course.model.InterfaceName;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ * ResourceBundle解决国际化问题,读取资源属性文件（properties）
+ */
+
 public class ConfigFile {
 
    private static ResourceBundle bundle= ResourceBundle.getBundle("application", Locale.CHINA);;

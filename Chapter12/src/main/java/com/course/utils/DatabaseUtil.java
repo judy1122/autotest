@@ -8,6 +8,10 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import java.io.IOException;
 import java.io.Reader;
 
+/**
+ * SqlSessionFactory对象的实例可以通过SqlSessionFactoryBuilder对象来获得
+ *
+ */
 public class DatabaseUtil {
 
     public static SqlSession getSqlSession() throws IOException {

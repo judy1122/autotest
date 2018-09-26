@@ -16,6 +16,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+
 import java.io.IOException;
 
 public class LoginTest {
@@ -24,14 +25,17 @@ public class LoginTest {
     @BeforeTest(groups = "loginTrue",description = "测试准备工作,获取HttpClient对象")
     public void beforeTest(){
         TestConfig.defaultHttpClient = new DefaultHttpClient();
+        //http://localhost:8888/v1/getUserInfo
         TestConfig.getUserInfoUrl = ConfigFile.getUrl(InterfaceName.GETUSERINFO);
+        //http://localhost:8888/v1/getUserInfo
         TestConfig.getUserListUrl = ConfigFile.getUrl(InterfaceName.GETUSERLIST);
+        //http://localhost:8888/v1/login
         TestConfig.loginUrl = ConfigFile.getUrl(InterfaceName.LOGIN);
+        //http://localhost:8888/v1/updateUserInfo
         TestConfig.updateUserInfoUrl = ConfigFile.getUrl(InterfaceName.UPDATEUSERINFO);
+        //http://localhost:8888/v1/addUser
         TestConfig.addUserUrl = ConfigFile.getUrl(InterfaceName.ADDUSERINFO);
     }
-
-
 
 
     @Test(groups = "loginTrue",description = "用户成功登陆接口")
@@ -42,12 +46,11 @@ public class LoginTest {
         System.out.println(loginCase.toString());
         System.out.println(TestConfig.loginUrl);
 
-        //下边的代码为写完接口的测试代码
+        //下边的代码为写完接口的测试代码,即执行登录是否成功
         String result = getResult(loginCase);
-        //处理结果，就是判断返回结果是否符合预期,todo,注释assert先跑通
-        //Assert.assertEquals(loginCase.getExpected(),result);
 
-
+        //处理结果，就是判断返回结果是否符合预期
+        Assert.assertEquals(loginCase.getExpected(),result);
     }
 
     @Test(description = "用户登陆失败接口")
@@ -57,17 +60,19 @@ public class LoginTest {
         System.out.println(loginCase.toString());
         System.out.println(TestConfig.loginUrl);
 
-
-
-        //下边的代码为写完接口的测试代码
+        //下边的代码为写完接口的测试代码,即执行登录是否成功
         String result = getResult(loginCase);
-        //处理结果，就是判断返回结果是否符合预期,todo,注释assert先跑通
-        //Assert.assertEquals(loginCase.getExpected(),result);
-
+        //处理结果，就是判断返回结果是否符合预期
+        Assert.assertEquals(loginCase.getExpected(),result);
     }
 
 
-
+    /**
+     * 连接方法
+     * @param loginCase
+     * @return
+     * @throws IOException
+     */
 
     private String getResult(LoginCase loginCase) throws IOException {
         //下边的代码为写完接口的测试代码
@@ -90,6 +95,4 @@ public class LoginTest {
         TestConfig.store = TestConfig.defaultHttpClient.getCookieStore();
         return result;
     }
-
-
 }
